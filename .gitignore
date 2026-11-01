@@ -1,0 +1,14 @@
+__pycache__/
+profile.json
+profile.tmp
+macro.log
+diagnostics/
+*.lnk
+*.log
+*.mp4
+.env
+.env.*
+!.env.example
+
+# pictures kept on this PC only (game artwork; the repository is public)
+assets/local/
