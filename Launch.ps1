@@ -12,7 +12,7 @@ if ($InstallDependencies -or $CheckDependencies) {
     & $taskPython (Join-Path $PSScriptRoot 'verify_dependencies.py')
 } else {
     & $taskPython (Join-Path $PSScriptRoot 'verify_dependencies.py') --quiet
-    if ($LASTEXITCODE -ne 0) { throw 'The portable bundle is incomplete. Extract a fresh complete copy of the folder.' }
+    if ($LASTEXITCODE -ne 0) { throw 'NeoSharp could not start: the check above says why.' }
     if ($SmokeUi) {
         & $taskPython (Join-Path $PSScriptRoot 'app.py') --smoke-ui
     } else {

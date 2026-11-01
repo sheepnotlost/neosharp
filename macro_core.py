@@ -66,7 +66,7 @@ def validate_profile(profile, require_ready=True):
         raise ValueError("Invalid materials list.")
     for key, row in materials.items():
         if (not isinstance(key, str) or not isinstance(row, dict) or len(row) > 12 or any(
-                not isinstance(n, str) or not 1 <= len(n) <= 40 or not isinstance(c, str)
+                not isinstance(n, str) or not 1 <= len(n) <= 60 or not isinstance(c, str)
                 or not 2 <= len(c) <= 4 for n, c in row.items())):
             raise ValueError("Invalid materials list.")
     if type(construction.get("gogo_refill",False)) is not bool:
@@ -177,6 +177,10 @@ def monitor_only_profile(profile):
         profile.setdefault("operation", "tech_parts")
         profile.setdefault("blueprints", {"count": 1})
         profile.setdefault("research_operation", profile["operation"] if profile["operation"] in ("tech_parts", "blueprints") else "tech_parts")
+        if profile["operation"] in ("recycling", "navray"):  # A NeocronSharp profile: those jobs are not here.
+            profile["operation"] = profile["research_operation"]
+        profile.pop("recycling", None)
+        profile.pop("navray", None)
         profile.setdefault("construction", {"recipe": "weaponpart_7", "available": 1, "count": 1})
         profile.setdefault("custom_recipes", {})
         profile.setdefault("hidden_recipes", [])

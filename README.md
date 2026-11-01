@@ -2,7 +2,7 @@
 
 A NeocronSharp lite client: only **Research** and **Construction** from [NeocronSharp](https://github.com/sheepnotlost/NeocronSharp), with no tracker, walking, combat or memory reading. It reads the game from screenshots and local Windows OCR, and sends ordinary mouse and keyboard input.
 
-Double-click **Launch.cmd**. Everything it needs, Python included, is in `runtime/`, so there is nothing to install. **Check-Dependencies.cmd** checks the bundle without touching the game.
+Double-click **Launch.cmd**. Everything it needs, Python included, is in `runtime/`, so there is nothing to install beyond Windows' own English text recognition, which most English installs already have. **Check-Dependencies.cmd** checks the bundle without touching the game.
 
 **No coordinate calibration:** Processor, Start, Inventory and the quantity dialog are found on screen at any resolution, fullscreen or windowed, and at any UI scale (about .6x to 2.2x). Keep their controls visible. Screenshots are never uploaded.
 
@@ -28,12 +28,12 @@ Each cycle drags one part to the Processor, checks the quantity dialog shows exa
 
 **Catalog** lists 1,263 item entries you can search by name or shorthand, taken from the [Tech Haven Items DB](https://db.techhaven.org/en/) on 26 October 2026. Most are marked **Check blueprint**: the site doesn't prove a blueprint exists. **Use blueprint recipe** saves an item to the Job page.
 
-1. On **Job**, choose a saved recipe or type a blueprint's name. **WP7**, **WP9** and **HH** pick the built-ins. Aliases are optional.
+1. On **Job**, choose a saved recipe or type a blueprint's name. **WP7**, **WP9** and **HH** pick the built-ins.
 2. In Neocron, open Inventory and Processor, put the construction tool in the first Processor slot, and keep the blueprints and ingredients in Inventory. Scroll Inventory to the top: the search runs downward.
 3. Enter **Build this batch**, or **0** to build until the blueprints run out.
 4. Click **Start in 3 seconds** and focus Neocron.
 
-It drags one blueprint in, confirms quantity 1, presses Start and watches for the result. **Ingredients are never dragged or clicked: Neocron supplies them.** Any unclear state, missing item or focus loss stops the batch, and an uncertain transfer is never retried.
+It drags one blueprint in, confirms quantity 1, presses Start and watches for the result. **Ingredients are left to Neocron**, unless More Materials in GoGo is ticked. Any unclear state, missing item or focus loss stops the batch, and an uncertain transfer is never retried.
 
 **Search:** **Fast** checks only what looks like a datacube. If an unusual icon is missed, use **Thorough**, which checks every cell.
 
